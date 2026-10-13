@@ -1,7 +1,9 @@
 # Forensic live : artefacts volatils et persistants
 ### Windows Server AD (GOAD-MINI) et Kali Linux
 
-Collecte, interprétation et corrélation d'artefacts forensics sur un contrôleur de domaine Windows et une machine Kali, selon l'**ordre de volatilité de la RFC 3227**. Chaque manipulation est documentée avec sa commande, son résultat, son interprétation et sa logique métier.
+Collecte, interprétation et corrélation d'artefacts forensics sur un contrôleur de domaine Windows et une machine Kali, selon l'**ordre de volatilité de la [RFC 3227](https://datatracker.ietf.org/doc/html/rfc3227)**. Chaque manipulation est documentée avec sa commande, son résultat, son interprétation et sa logique métier.
+
+> **Labo utilisé** : environnement basé sur [GOAD (Game Of Active Directory)](https://github.com/Orange-Cyberdefense/GOAD), projet open source d'[Orange Cyberdefense](https://github.com/Orange-Cyberdefense) ([documentation officielle](https://orange-cyberdefense.github.io/GOAD/)). GOAD et ses scénarios appartiennent à leurs auteurs ; ce dépôt n'en est ni une copie ni un fork, il documente uniquement mon analyse forensic sur ma propre instance de laboratoire.
 
 ## Objectif
 
@@ -11,7 +13,7 @@ Montrer comment un **artefact** (indice technique brut) devient une **preuve** (
 
 | Élément | Détail |
 |---|---|
-| Windows | `kingslanding`, contrôleur de domaine `sevenkingdoms` (labo GOAD-MINI), session `Domain Admins` |
+| Windows | `kingslanding`, contrôleur de domaine `sevenkingdoms` ([labo GOAD](https://orange-cyberdefense.github.io/GOAD/)), session `Domain Admins` |
 | Linux | Kali `pentest` (zsh, journald, wtmpdb) |
 | Niveaux RFC 3227 couverts | 2 (réseau, ARP), 3 (processus), 5 (disque : fichiers récents, registre, historiques, journaux) |
 | Hors périmètre | Image mémoire complète, image disque, analyse de timeline MFT |
@@ -194,3 +196,9 @@ Tout ce qui a modifié les systèmes, à exclure de l'analyse :
 ## Compétences démontrées
 
 Collecte selon l'ordre de volatilité, triage de connexions et de processus, vérification de signatures, lecture de journaux Windows et Linux, corrélation multi-sources, attribution, rigueur de documentation (horodatage UTC, limites, journal des actions) et restitution claire pour un lecteur technique comme non technique.
+
+## Références
+
+- [GOAD (Game Of Active Directory), Orange Cyberdefense](https://github.com/Orange-Cyberdefense/GOAD) : dépôt officiel du labo
+- [Documentation officielle de GOAD](https://orange-cyberdefense.github.io/GOAD/)
+- [RFC 3227, Guidelines for Evidence Collection and Archiving](https://datatracker.ietf.org/doc/html/rfc3227) : ordre de volatilité
